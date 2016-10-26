@@ -1,0 +1,9 @@
+{
+  "name": "ileo-overlay",
+  "description": "Generic overlay manager based on work of @ileotechparis",
+  "version": "0.1.0",
+  "devDependencies": {},
+  "dependencies": {
+    "angular": "^1.5.5"
+  }
+}
