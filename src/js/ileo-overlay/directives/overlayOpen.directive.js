@@ -17,18 +17,16 @@
     ) {
 
         var overlayOpenLink = function overlayOpenLink ( scope , element , attrs ) {
+
             element.on( 'click' , function () {
-                ileoOverlayService.open({
-                    // overlap: true,
-                    hasBackdrop: true,
-                    templateUrl: 'src/js/ileo-overlay/templates/overlay.template.html',
-                    dataUrl: 'https://spreadsheets.google.com/feeds/list/1aZDJcVr047xcZww0AdwWQiWWCIGiLNzd6Z13kjNAiuI/1/public/values?alt=json'
-                }, attrs.toggleIleoOverlay );
+                ileoOverlayService.open( scope.setup , attrs.toggleIleoOverlay );
             });
         }
 
         return {
-            scope: false,
+            scope: {
+                setup: '='
+            },
             restrict: 'A',
             link: overlayOpenLink,
         }

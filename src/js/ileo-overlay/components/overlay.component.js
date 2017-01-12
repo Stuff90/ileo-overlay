@@ -61,12 +61,6 @@
 
         ctrl.close = ileoOverlayService.close;
 
-        if( params.scope ) {
-            Object.keys( params.scope ).forEach(function( key ) {
-                ctrl[key] = params.scope[key];
-            });
-        }
-
         function initOverlay() {
             if( 'hasBackdrop' in params && params.hasBackdrop ){
                 // ctrl.backdropStyle = ileoOverlayConfigService.backdropCss;

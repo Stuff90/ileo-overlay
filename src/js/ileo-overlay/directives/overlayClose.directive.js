@@ -16,7 +16,7 @@
         ileoOverlayService
     ) {
 
-        var overlayCloseLink = function overlayCloseLink ( scope , element ) {
+        var overlayCloseLink = function overlayCloseLink ( scope , element  ) {
             element.on( 'click' , function () {
                 ileoOverlayService.close();
             });

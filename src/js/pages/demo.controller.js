@@ -2,16 +2,42 @@
 
     var dependencies = [
         '$scope',
+        '$rootScope',
+        'ileoOverlayService'
     ]
 
     function DemoController(
-        $scope
+        $scope,
+        $rootScope,
+        ileoOverlayService
     ) {
-        console.info('$scope');
+
+        $rootScope.text = 'from $rootScope';
+        $scope.text = 'from $scope';
+
+        $scope.withScope = function() {
+            console.info('var1');
+
+            ileoOverlayService.toggle({
+                hasBackdrop: true,
+                templateUrl: 'src/js/ileo-overlay/templates/overlay.template.html',
+                scope: $scope
+            }, 'withScope' );
+        }
+
+        $scope.withoutScope = function() {
+            ileoOverlayService.toggle({
+                hasBackdrop: true,
+                templateUrl: 'src/js/ileo-overlay/templates/overlay.template.html',
+            }, 'withoutScope' );
+        }
+
     }
+
+    DemoController.$inject = dependencies;
 
     angular.module( 'ileo-overlay.demo' , [
         'ileo.overlay'
-    ]). controller([ dependencies.concat( DemoController )]);
+    ]).controller( 'DemoController' , DemoController );
 
 })();

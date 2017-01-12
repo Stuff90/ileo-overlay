@@ -12,7 +12,6 @@
     angular.module('ileo.overlay', [])
         .constant('ILEO_OVERLAY_DEFAULT_PARAMS' , {
             data: {},
-            scope: {},
             class: '',
             overlap: true,
             hasBackdrop: true,

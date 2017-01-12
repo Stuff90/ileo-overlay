@@ -42,7 +42,7 @@ gulp.task('templates', function () {
         .pipe(gulp.dest('dist/src'));
 });
 
-gulp.task('demo', [ 'build' ] ,function() {
+gulp.task('default', [ 'build' , 'vendors' , 'templates' ] ,function() {
     return gulp.src( 'src/js/pages/demo.controller.js' )
         .pipe(plumber())
         .pipe(concat( 'script.js' ))

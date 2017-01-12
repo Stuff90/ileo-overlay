@@ -2,7 +2,11 @@
     <head></head>
     <body ng-app="ileo-overlay.demo">
 
-        <button open-ileo-overlay>Open</button>
+        <div ng-controller="DemoController">
+            <button ng-click="withScope()">With scope as parameter</button>
+            <button ng-click="withoutScope()">With no scope</button>
+            <!-- <button open-ileo-overlay>Open</button> -->
+        </div>
 
         <script type="text/javascript" src="vendors.js"></script>
         <script type="text/javascript" src="script.js"></script>
