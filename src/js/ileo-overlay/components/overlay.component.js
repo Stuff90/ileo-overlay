@@ -60,6 +60,7 @@
         $timeout( initOverlay );
 
         ctrl.close = ileoOverlayService.close;
+        $scope.actions = params.actions;
 
         function initOverlay() {
             if( 'hasBackdrop' in params && params.hasBackdrop ){
