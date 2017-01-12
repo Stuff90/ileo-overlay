@@ -1,3 +1,5 @@
 bower_components
 node_modules
+dist/src
+dist/vendors.js
 dist/script.js

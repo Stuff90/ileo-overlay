@@ -3,6 +3,7 @@
 var gulp = require('gulp'),
 concat   = require('gulp-concat'),
 uglify   = require('gulp-uglify'),
+mainBowerFiles = require('main-bower-files'),
 plumber  = require('gulp-plumber');
 
 
@@ -27,6 +28,19 @@ gulp.task('build', function() {
         .pipe(gulp.dest( 'dist' ));
 });
 
+
+gulp.task('vendors', function () {
+    return gulp.src(mainBowerFiles())
+        .pipe(concat('vendors.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist'));
+});
+
+
+gulp.task('templates', function () {
+    return gulp.src('src/**/*.html')
+        .pipe(gulp.dest('dist/src'));
+});
 
 gulp.task('demo', [ 'build' ] ,function() {
     return gulp.src( 'src/js/pages/demo.controller.js' )

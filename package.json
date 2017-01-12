@@ -4,6 +4,8 @@
   "descirption": "Generic overlay manager based on work of @ileotechparis",
   "dependencies": {},
   "devDependencies": {
+    "bower-main-files": "0.0.4",
+    "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-plumber": "^1.1.0",

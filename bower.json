@@ -3,6 +3,7 @@
   "description": "Generic overlay manager based on work of @ileotechparis",
   "version": "0.1.0",
   "devDependencies": {},
+  "main": "dist/ileo-overlay.min.js",
   "dependencies": {
     "angular": "^1.5.5"
   }
