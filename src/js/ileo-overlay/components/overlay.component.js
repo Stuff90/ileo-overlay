@@ -60,9 +60,12 @@
         $timeout( initOverlay );
 
         ctrl.close = ileoOverlayService.close;
-        Object.keys( params.scope ).forEach(function( key ) {
-            ctrl[key] = params.scope[key];
-        });
+
+        if( params.scope ) {
+            Object.keys( params.scope ).forEach(function( key ) {
+                ctrl[key] = params.scope[key];
+            });
+        }
 
         function initOverlay() {
             if( 'hasBackdrop' in params && params.hasBackdrop ){
