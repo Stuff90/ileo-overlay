@@ -63,7 +63,7 @@
 
         function initOverlay() {
             if( 'hasBackdrop' in params && params.hasBackdrop ){
-                ctrl.backdropStyle = ileoOverlayConfigService.backdropCss;
+                // ctrl.backdropStyle = ileoOverlayConfigService.backdropCss;
             }
 
             $q.all({
@@ -133,7 +133,7 @@
         function setupOverlay( theOverlaySetup ) {
             ctrl.data = theOverlaySetup.data;
             appendTemplate( theOverlaySetup.template ).then(function () {
-                ctrl.overlayStyle  = ileoOverlayConfigService.overlayCss;
+                // ctrl.overlayStyle  = ileoOverlayConfigService.overlayCss;
             }).catch(function ( ngError ) {
                 raiseError('The template is not compilable: ' + ngError );
             });
