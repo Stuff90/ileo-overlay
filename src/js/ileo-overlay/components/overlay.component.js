@@ -131,7 +131,8 @@
         }
 
         function setupOverlay( theOverlaySetup ) {
-            ctrl.data = angular.extend(( params.data || {}) , theOverlaySetup.data );
+            ctrl.data = theOverlaySetup.data;
+            ctrl.local = ( params.scope || {});
             appendTemplate( theOverlaySetup.template ).then(function () {
                 // ctrl.overlayStyle  = ileoOverlayConfigService.overlayCss;
             }).catch(function ( ngError ) {
