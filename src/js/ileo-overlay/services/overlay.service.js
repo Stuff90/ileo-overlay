@@ -82,7 +82,7 @@
 
                 if( !Object.keys( self.currentOverlays ).includes( overlayId ) || overlayParams.overlap === true ) {
                     self.currentOverlays[ overlayId ] = {};
-                    var theScope = overlayParams.scope || $rootScope.$new();
+                    var theScope = $rootScope.$new();
 
                     $compile( '<ileo-overlay></ileo-overlay>' )( theScope , function ( $compiledOverlay , overlayScope ) {
                         overlayScope.params = overlayParams;
@@ -117,9 +117,7 @@
                 closingOverlayId = overlayId || this.getLastCreatedOverlay();
 
                 if( closingOverlayId ) {
-                    if( !this.currentOverlays[ closingOverlayId ].$scope.params.scope ) {
-                        this.currentOverlays[ closingOverlayId ].$scope.$destroy();
-                    }
+                    this.currentOverlays[ closingOverlayId ].$scope.$destroy();
                     this.currentOverlays[ closingOverlayId ].$element.empty().remove();
                     delete this.currentOverlays[ closingOverlayId ];
                     $timeout( deferred.resolve );
