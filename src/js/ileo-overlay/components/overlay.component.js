@@ -59,7 +59,6 @@
 
         $timeout( initOverlay );
 
-        ctrl.data = params.data;
         ctrl.close = ileoOverlayService.close;
 
         function initOverlay() {
@@ -132,7 +131,7 @@
         }
 
         function setupOverlay( theOverlaySetup ) {
-            ctrl.data = angular.extend( params.data , theOverlaySetup.data );
+            ctrl.data = angular.extend(( params.data || {}) , theOverlaySetup.data );
             appendTemplate( theOverlaySetup.template ).then(function () {
                 // ctrl.overlayStyle  = ileoOverlayConfigService.overlayCss;
             }).catch(function ( ngError ) {
