@@ -15,8 +15,15 @@
         $rootScope.text = 'from $rootScope';
         $scope.text = 'from $scope';
 
+        $scope.$on('ileo:overlay:open' , function ( $event, overlayId ) {
+            console.info('Opened overlay', overlayId);
+        });
+
+        $scope.$on('ileo:overlay:close' , function ( $event, overlayId ) {
+            console.info('Closed overlay', overlayId);
+        });
+
         $scope.withScope = function() {
-            console.info('var1');
 
             ileoOverlayService.toggle({
                 hasBackdrop: true,

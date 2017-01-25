@@ -45,7 +45,7 @@
             self.currentOverlays = {};
 
             document.onkeyup = self.keyPressed;
-            $rootScope.$on( 'ileo:overlay:close' , function () {
+            $rootScope.$on( 'ileo:overlay:escape' , function () {
                 self.closeOverlay();
             });
 
@@ -67,7 +67,7 @@
             keyPressed: function keyPressed( event ) {
                 event = event || window.event;
                 if ( event.keyCode === 27 ) {
-                    $rootScope.$broadcast( 'ileo:overlay:close' );
+                    $rootScope.$broadcast( 'ileo:overlay:escape' );
                 }
             },
 
@@ -91,7 +91,10 @@
                         self.currentOverlays[ overlayId ].createdAt =  new Date().getTime();
 
                         $document.find('body').append( self.currentOverlays[ overlayId ].$element );
-                        $timeout( deferred.resolve );
+                        $timeout(function () {
+                            deferred.resolve();
+                            $rootScope.$broadcast('ileo:overlay:open' , overlayId );
+                        });
                     });
                 }
 
@@ -120,7 +123,10 @@
                     this.currentOverlays[ closingOverlayId ].$scope.$destroy();
                     this.currentOverlays[ closingOverlayId ].$element.empty().remove();
                     delete this.currentOverlays[ closingOverlayId ];
-                    $timeout( deferred.resolve );
+                    $timeout( function () {
+                        deferred.resolve();
+                        $rootScope.$broadcast('ileo:overlay:close' , closingOverlayId );
+                    });
                 } else {
                     deferred.reject();
                 }
