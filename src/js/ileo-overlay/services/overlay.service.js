@@ -59,7 +59,7 @@
                 toggle: function ( params , id ) {
                     return self.currentOverlays[ id ] ? this.close( id ) : this.open( params , id );
                 },
-                isOpened: function ( id ) {
+                isOpen: function ( id ) {
                     return self.currentOverlays.hasOwnProperty(id);
                 },
             }
